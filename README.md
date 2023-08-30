@@ -7,3 +7,34 @@
 ![docker](./assets/docker.png)
 
 ## Kubernetes
+
+### k8s Monitoring (prometheus & grafana)
+
+This tutorial is progressed in a minikube.
+
+#### repository add
+
+```bash
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+```
+
+#### deploy
+
+```bash
+helm install prometheus prometheus-community/prometheus -f values-prometheus.yml
+helm install grafana grafana/grafana -f values-grafana.yml
+```
+
+#### external access
+
+```bash
+minikube service -n prometheus grafana --url
+```
+
+#### uninstall
+
+```bash
+helm uninstall grafana
+helm uninstall prometheus
+```
