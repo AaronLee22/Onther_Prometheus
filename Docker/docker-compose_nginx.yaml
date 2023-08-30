@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+    frontend:
+        depends_on:
+            - db
+            - backend
+        build:
+            context: ../client
+            dockerfile: Dockerfile_nginx
+        ports:
+            - 80:80
+
+    backend:
+        depends_on:
+            - db
+        environment:
+            - MONGODB_HOST=db
+        build:
+            context: ../server
+            dockerfile: Dockerfile
+
+    db:
+        image: mongo:latest
+        ports:
+            - "28017:27017"
+        volumes:
+            - "${PWD}/DB/data/db:/data/db"
