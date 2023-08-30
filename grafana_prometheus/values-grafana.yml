@@ -1,0 +1,17 @@
+replicas: 1
+
+service:
+    type: NodePort
+    nodePort: 31030
+
+persistence:
+    type: pvc
+    enabled: true
+    accessModes:
+        - ReadWriteOnce
+    size: 10Gi
+    finalizers:
+        - kubernetes.io/pvc-protection
+
+adminUser: admin
+adminPassword: admin

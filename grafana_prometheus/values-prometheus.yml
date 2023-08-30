@@ -1,0 +1,12 @@
+server:
+    enabled: true
+
+    persistentVolume:
+        enabled: true
+        accessModes:
+            - ReadWriteOnce
+        mountPath: /data
+        size: 10Gi
+    replicaCount: 1
+
+    retention: "30d"
