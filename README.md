@@ -8,9 +8,9 @@
 
 ## Kubernetes
 
-### k8s Monitoring (prometheus & grafana)
-
 This tutorial is progressed in a minikube.
+
+### k8s Monitoring (prometheus & grafana)
 
 #### repository add
 
