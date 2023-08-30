@@ -10,6 +10,37 @@
 
 This tutorial is progressed in a minikube.
 
+### Run application with k8s
+
+#### image build
+
+```bash
+eval $(minikube docker-env)
+cd server
+docker build -t kube-mern-server .
+cd ../client
+mv Dockerfile_node Dockerfile
+docker build -t kube-mern-client .
+mv Dockerfile Dockerfile_node
+```
+
+#### deploy
+
+```bash
+kubectl apply -f mongodb-pvc.yml
+kubectl apply -f database.yml
+kubectl apply -f backend.yml
+kubectl apply -f frontend.yml
+```
+
+#### external access
+
+```bash
+minikube service frontend-service --url
+```
+
+---
+
 ### k8s Monitoring (prometheus & grafana)
 
 #### repository add
@@ -29,7 +60,7 @@ helm install grafana grafana/grafana -f values-grafana.yml
 #### external access
 
 ```bash
-minikube service -n prometheus grafana --url
+minikube service grafana --url
 ```
 
 #### uninstall
