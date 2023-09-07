@@ -1,0 +1,15 @@
+#Configured the PV to configure the storage and configured it to retain data for 15 days.
+server:
+    enabled: true
+
+    persistentVolume:
+        enabled: true
+#"ReadWriteOnce," meaning the volume can be mounted in read-write mode by a single node at a time.
+        accessModes:
+            - ReadWriteOnce
+        mountPath: /data
+        size: 20Gi
+    replicaCount: 1
+
+## Prometheus data retention period (default if not specified is 15 days)
+    retention: "15d"

@@ -1,8 +1,9 @@
+# We configured the PVC to configure the storage to keep the configuration information.
 replicas: 1
 
 service:
     type: NodePort
-    nodePort: 31030
+    nodePort: 30001
 
 persistence:
     type: pvc
@@ -14,4 +15,4 @@ persistence:
         - kubernetes.io/pvc-protection
 
 adminUser: admin
-adminPassword: admin
+adminPassword: OntherMontoring
