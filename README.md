@@ -38,11 +38,11 @@ kubectl apply -f frontend.yaml
 ```bash
 minikube service frontend-service --url
 ```
-//access application through url
+access application through url
 ---
 
 ### k8s Monitoring (prometheus & grafana)
-//Install all prometheus, grafana, helm
+Install all prometheus, grafana, helm
 
 
 #### add repository
